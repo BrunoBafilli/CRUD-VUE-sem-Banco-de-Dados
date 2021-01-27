@@ -1,4 +1,4 @@
-# treinamento
+# Treinamento VUE, CRUD sem DATABASE usando proprio modulo como "DATABASE"
 
 ## Project setup
 ```
