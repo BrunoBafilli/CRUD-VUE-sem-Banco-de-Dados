@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button class="btn btn-dark" @click="selecionado = 'todos' ">Todos</button>
+    <button class="btn btn-dark" @click="selecionado = 'promocao' ">Promocao</button>
+    <button class="btn btn-dark" @click="selecionado = 'destaque' ">Destaque</button>
+    <app-cadastro/>
+    <app-todos-produtos v-show="selecionado == 'todos'"/>
+    <app-destaques v-show="selecionado == 'destaque'"/>
+    <app-promocao v-show="selecionado == 'promocao' "/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import appCadastro from "./components/Cadastro";
+import AppDestaques from "./components/Destaques";
+import AppTodosProdutos from "./components/TodosProdutos";
+import AppPromocao from "./components/Promocao";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  components: { AppDestaques, appCadastro, AppTodosProdutos, AppPromocao },
+  data(){
+    return {
+      selecionado: 'todos'
+    }
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
+  button{
+    margin: 0.5%;
+  }
+
 </style>
